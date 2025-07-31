@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root{
+  --color-dark:#021526;
+  --color-md-dark:#AB886D;
+  --color-md-light:#D6C0B3;
+  --color-light:#E4E0E1;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+ 
+}
+
+
+
+@font-face{
+font-family: rawgly-regular;
+src: url("public/RawglyRegular-MVyWP.otf");
+
+}
+@font-face{
+    font-family: vsans;
+    src: url("public/FontsFree-Net-GianeGothicsans-Bold.ttf");
+    
+    }
+    
+
+h1,h2,h3,h4,h5,h6{
+    font-family: giane-gothic-sans,Arial, Helvetica, sans-serif;
+}
+
+/* *:hover{
+  scrollbar-width: 2px;
+  scrollbar-color:transparent
+} */
+
+*::-webkit-scrollbar{
+  appearance: none;
+}
+
+
+
+nav{
+    position: absolute;
+    z-index: 100;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+ }
+
+ .logo{
+    font-family: rawgly-regular;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border-right: 2px solid var(--border-right,rgb(255, 255, 255));
+    padding: 1rem;
+    }
+
+.nav-menu .active{
+  position: relative;
+}
+
+.nav-menu .active::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: -8px;
+  left: 0;
+  background-color: var(--pseudo-color, white);
+  border-radius: 1rem;
+  animation: from-left .5s forwards 1;
+  
+}
+
+
+ .header{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  background-attachment: fixed;
+    background-blend-mode: overlay;
+}
+
+.banner{
+
+    width:90vw;
+}
+
+.banner-heading{
+
+border-bottom: 0;
+
+}
+
+
+.artcard-text{
+   color: var(--color-light);
+   opacity: 1;
+  
+   transition: all .5s linear;
+   height: fit-content;
+   width: 100%;
+   background-color: #e6826988;
+ 
+   
+}
+.artcard-visible-text{
+    padding-block: 1rem;
+    width: 100%;
+    transition: all .5s linear;
+}
+
+.artcard .slide-in-text{
+width: 100%;
+   bottom: -100%;
+  z-index: 100;
+  color: var(--color-md-light);
+  background-color: #02152695;
+  opacity: 0;
+ 
+  
+  
+}
+
+
+
+/* width */
+  .modal-conatiner{
+    
+    padding: 1rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.077);
+    inset: 0;
+    z-index: 1000;
+  }
+
+  input,select,option,textarea{
+    color: black;
+  }
+
+ 
+  @media (prefers-reduced-motion: no-preference) {
+    /* Styles for users who have no preference for reduced motion (default behavior) */
+     /* .artcard{
+    animation: fade-in forwards;
+    animation-timeline: view(80vh -10vh);
+    transform-origin: center;
+   transition-duration: .6s;
+  } */
+    
+    .artcard:hover .artcard-text{
+        
+        font-size: 1rem;
+        font-weight: 300;
+         height: fit-content ;
+         transition-delay: 2s;
+         opacity: 1;
+         /* top:calc(100% - 2rem);    */
+         z-index: 100;       
+     }
+
+
+     .artcard:hover .slide-in-text{
+      
+      bottom: 0;
+      transition: all .3s ease-in-out;
+     opacity: 1;
+   
+     }
+     
+
+     .banner-artcard{
+      animation: fade-in 1s forwards 1;
+     }
+  }
+
+  .triangle{
+    position: relative;
+    height:8rem;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .triangle span{
+   position: relative;
+    width: fit-content;
+    height:1.5rem;
+    bottom: calc(25% - .75rem);
+    left: calc(-25% + 0.75rem);
+    /* background-color: #fff; */
+    transform: rotate(-45deg)
+              
+  }
+
+
+  
+  @keyframes fade-in{
+    0%{
+      transform: scale(0);
+     }
+    100%{
+      transform: scale(1);
+      
+    }
+    
+  }
+
+  @keyframes from-left{
+    from{
+      width: 0;
+    }
+    to{
+      width: 100%;
+    }
+  }
+
+
+  @keyframes fade-out{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+  }
