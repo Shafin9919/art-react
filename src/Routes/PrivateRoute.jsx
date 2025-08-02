@@ -8,7 +8,6 @@ function PrivateRoute({children}) {
     const {user, isLoading}=useContext(AuthContext);
     const {pathname}=useLocation();
   
-console.log(user);
     if(isLoading){
      return <div>
         Loading
